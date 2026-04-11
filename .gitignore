@@ -1,0 +1,8 @@
+FOREIGNPAY_PERSONAL_PROJECT.md
+.idea/
+*.iml
+*.log
+*.class
+*.jar
+*.war
+*.ear
