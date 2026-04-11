@@ -22,3 +22,27 @@ spring:
     user:
       name: admin
       password: password
+
+cors:
+  allowed:
+    origins: http://localhost:3000
+
+jwt:
+    secret: foreignpay_jwt_secret_2024_very_long_string_must_be_at_least_32_chars
+    expiration: 3600000
+
+razorpay:
+  key:
+    id: placeholder
+    secret: placeholder
+
+cloudinary:
+  cloud:
+    name: placeholder
+  api:
+    key: placeholder
+    secret: placeholder
+
+gemini:
+  api:
+    key: placeholder
