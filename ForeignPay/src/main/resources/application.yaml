@@ -25,24 +25,24 @@ spring:
 
 cors:
   allowed:
-    origins: http://localhost:3000
+    origins: ${CORS_ALLOWED_ORIGINS}
 
 jwt:
-    secret: foreignpay_jwt_secret_2024_very_long_string_must_be_at_least_32_chars
-    expiration: 3600000
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION}
 
 razorpay:
   key:
-    id: placeholder
-    secret: placeholder
+    id: ${RAZORPAY_KEY_ID}
+    secret: ${RAZORPAY_KEY_SECRET}
 
 cloudinary:
   cloud:
-    name: placeholder
+    name: ${CLOUDINARY_CLOUD_NAME}
   api:
-    key: placeholder
-    secret: placeholder
+    key: ${CLOUDINARY_API_KEY}
+    secret: ${CLOUDINARY_API_SECRET}
 
 gemini:
   api:
-    key: placeholder
+    key: ${GEMINI_API_KEY}

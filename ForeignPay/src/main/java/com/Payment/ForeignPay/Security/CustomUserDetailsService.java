@@ -1,6 +1,8 @@
 package com.Payment.ForeignPay.Security;
 
+import com.Payment.ForeignPay.Entity.Admin;
 import com.Payment.ForeignPay.Entity.User;
+import com.Payment.ForeignPay.Repository.AdminRepository;
 import com.Payment.ForeignPay.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,7 @@ import java.util.Optional;
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final AdminRepository adminRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -25,6 +28,15 @@ public class CustomUserDetailsService implements UserDetailsService {
                     .username(user.get().getEmail())
                     .password(user.get().getPasswordHash())
                     .roles("USER")
+                    .build();
+        }
+
+        Optional<Admin> admin = adminRepository.findByEmail(email);
+        if (admin.isPresent()) {
+            return org.springframework.security.core.userdetails.User.builder()
+                    .username(admin.get().getEmail())
+                    .password(admin.get().getPasswordHash())
+                    .roles("ADMIN")
                     .build();
         }
 
