@@ -60,6 +60,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TopupTransaction> topupTransactions;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UpiTransaction> upiTransactions;
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
