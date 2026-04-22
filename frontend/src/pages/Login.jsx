@@ -115,13 +115,6 @@ export default function Login() {
               {loading ? 'Signing in…' : 'Sign in'}
             </button>
           </form>
-
-          {/* Admin hint */}
-          <div className="mt-6 pt-4 border-t border-gray-100 text-center">
-            <p className="text-xs text-gray-400">
-              Admin? Use admin@foreignpay.com / admin123
-            </p>
-          </div>
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">

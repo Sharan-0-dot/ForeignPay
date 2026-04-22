@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  springboot:
+    image: sharansc/foreignpay
+    container_name: foreignpay_backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - foreignpay_net
+    expose:
+      - "8080"
+
+  nginx:
+    image: sharansc/foreignpay_frontend
+    container_name: foreignpay_frontend
+    restart: unless-stopped
+    depends_on:
+      - springboot
+    ports:
+      - "80:80"
+    networks:
+      - foreignpay_net
+
+networks:
+  foreignpay_net:
+    driver: bridge

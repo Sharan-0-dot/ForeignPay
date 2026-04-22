@@ -6,3 +6,5 @@ FOREIGNPAY_PERSONAL_PROJECT.md
 *.jar
 *.war
 *.ear
+
+.env
